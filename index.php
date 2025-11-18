@@ -6,13 +6,17 @@ require_once 'Mahasiswa.php';
 $mhs1 = new Mahasiswa("Dina Delmiana", "2310010541");
 
 // 3. Mengisi Properti Objek (Mengakses data di dalam objek)
-$mhs1->nama = "Dina";
-$mhs1->nim = "2310010541";
+// $mhs1->nama = "Dina";
+// $mhs1->nim = "2310010541";
 
 // 4. Membuat objek kedua (optional, untuk menunjukkan setiap objek unik)
 $mhs2 = new Mahasiswa("Dina","12345678");
-$mhs2->nama = "Sinta Dewi";
-$mhs2->nim = "2023006";
+// $mhs2->nama = "Sinta Dewi";
+// $mhs2->nim = "2023006";
+
+// mencoba mengubah NIM (setter) - sukses
+echo "<h3 style='color:#2980b9;'>--- DEMO SETTER (mhs1) ---</h3>";
+$mhs1->setNim("1234567"); // 7 digit - Sukses
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +37,8 @@ h2 { color: #34495e; margin-top: 30px; }
 </head>
 <body>
 
-   <div class="container">
+   <!-- Modul 1 -->
+     <div class="container">
         <h1>Modul 1: Konsep Dasar OOP (Class & Object)</h1>
  
         <h2>Objek Pertama: <?php echo $mhs1->nama; ?></h2>
@@ -57,7 +62,9 @@ h2 { color: #34495e; margin-top: 30px; }
 
      </div>
 
-        <div class="container">
+
+     <!-- Modul 2 -->
+     <div class="container">
         <h1>Modul 2: Konstruktor, Destruktor, dan $this</h1>
  
         <h2>Objek Pertama: <?php echo $mhs1->nama; ?></h2>
@@ -79,6 +86,38 @@ h2 { color: #34495e; margin-top: 30px; }
         </p>
 
      </div>
+
+
+     <!-- modul 3 -->
+      <div class="container">
+        <h1>Modul 3: Encapsulation (Pengecekan Data)</h1>
+
+        <h2>Objek Pertama: <?php echo $mhs1->nama; ?></h2>
+        <div class="output">
+          <!-- 4. Memanggil Metode Objek -->
+          <?php $mhs1->sayHello(); ?>
+          <p><strong>NIM Saat Ini (via Getter):</strong> <span style="font-weight: bold; color:
+          #e67e22;"><?php echo $mhs1->getNim(); ?></span></p>
+        </div>
+
+        <h2>Objek Kedua: <?php echo $mhs2->nama; ?></h2>
+        <div class="output">
+           <!-- Memanggil Metode Objek Kedua -->
+           <?php $mhs2->sayHello(); ?>
+           <p><strong>NIM Saat Ini (via Getter):</strong> <span style="font-weight: bold; color:
+           #e67e22;"><?php echo $mhs2->getNim(); ?></span></p>
+           <p style="color: red;">*Objek ini dibuat dengan NIM tidak valid, namun Setter
+           mencegahnya masuk ke properti.</p>
+        </div>
+
+        <p>
+           <em>(Coba hapus method **getNim()** dari kode dan akses NIM secara langsung: **$mhs1-
+           >nim**. Anda akan mendapatkan Fatal Error karena NIM bersifat private!)</em>
+        </p>
+
+     </div>
+
+
 
 </body>
 </html>
