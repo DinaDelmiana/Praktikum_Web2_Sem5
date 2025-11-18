@@ -1,24 +1,25 @@
 <?php
- // 1. Masukkan (include) file class Mahasiswa.
+// 1. Masukkan (include) file class Mahasiswa.
 require_once 'Mahasiswa.php';
 
 // 2. Instansiasi Objek (Menciptakan objek nyata dari blueprint Mahasiswa)
-$mhs1 = new Mahasiswa();
+$mhs1 = new Mahasiswa("Dina Delmiana", "2310010541");
 
 // 3. Mengisi Properti Objek (Mengakses data di dalam objek)
-$mhs1->nama = "Andi Pratama";
-$mhs1->nim = "2023005";
+$mhs1->nama = "Dina";
+$mhs1->nim = "2310010541";
 
 // 4. Membuat objek kedua (optional, untuk menunjukkan setiap objek unik)
-$mhs2 = new Mahasiswa();
+$mhs2 = new Mahasiswa("Dina","12345678");
 $mhs2->nama = "Sinta Dewi";
 $mhs2->nim = "2023006";
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Modul 1: Dasar OOP</title>
+<title>Modul 2:Konstruktor dan $this</title>
 <style>
 body { font-family: 'Inter', sans-serif; background-color: #f4f7f9; margin: 0; padding:
 20px; }
@@ -32,27 +33,52 @@ h2 { color: #34495e; margin-top: 30px; }
 </head>
 <body>
 
-<div class="container">
-<h1>Modul 1: Konsep Dasar OOP (Class & Object)</h1>
+   <div class="container">
+        <h1>Modul 1: Konsep Dasar OOP (Class & Object)</h1>
+ 
+        <h2>Objek Pertama: <?php echo $mhs1->nama; ?></h2>
+        <div class="output">
+             <!-- 5. Memanggil Metode Objek -->
+             <?php $mhs1->sayHello(); ?>
+        </div>
 
-<h2>Objek Pertama: <?php echo $mhs1->nama; ?></h2>
-<div class="output">
-<!-- 5. Memanggil Metode Objek -->
-<?php $mhs1->sayHello(); ?>
-</div>
+        <h2>Objek Kedua: <?php echo $mhs2->nama; ?></h2>
+        <div class="output">
+             <!-- Memanggil Metode Objek Kedua -->
+             <?php $mhs2->sayHello(); ?>
+        </div>
 
-<h2>Objek Kedua: <?php echo $mhs2->nama; ?></h2>
-<div class="output">
-<!-- Memanggil Metode Objek Kedua -->
-<?php $mhs2->sayHello(); ?>
-</div>
+        <p class="mt-4">
 
-<p class="mt-4">
-               <em>(Lihat kode di `Mahasiswa.php` untuk definisi kelas, dan kode di `index.php` untuk
-cara menggunakannya.)</em>
-</p>
+         <em>(Lihat kode di `Mahasiswa.php` untuk definisi kelas, dan kode di `index.php` untuk
+         cara menggunakannya.)</em>
+        </p>
 
-</div>
+
+     </div>
+
+        <div class="container">
+        <h1>Modul 2: Konstruktor, Destruktor, dan $this</h1>
+ 
+        <h2>Objek Pertama: <?php echo $mhs1->nama; ?></h2>
+        <div class="output">
+             <!-- 5. Memanggil Metode Objek -->
+             <?php $mhs1->sayHello(); ?>
+        </div>
+
+        <h2>Objek Kedua: <?php echo $mhs2->nama; ?></h2>
+        <div class="output">
+             <!-- Memanggil Metode Objek Kedua -->
+             <?php $mhs2->sayHello(); ?>
+        </div>
+
+        <p class="mt-4">
+
+         <em>(Lihat kode di `Mahasiswa.php` untuk definisi kelas, dan kode di `index.php` untuk
+         cara menggunakannya.)</em>
+        </p>
+
+     </div>
 
 </body>
 </html>
