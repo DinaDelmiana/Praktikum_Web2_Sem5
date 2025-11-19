@@ -14,23 +14,33 @@ class Mahasiswa
     {
     // Menggunakan $this untuk mengisi properti kelas
      $this->nama = $nama;
-     $this->setNim = ($nim);
+     $this->setNim($nim);
 
      echo "--> Objek **{$this->nama}** berhasil dibuat (Konstruktor berjalan).<br>";
     }
 
     public function setNim($nim)
     {
-      // Validasi Sederhana: NIM harus memiliki panjang 7
-      if (strlen($nim) === 7) {
-          $this->nim = $nim;
-          return true;
-      } else {
-         echo "<span style='color: red;'>[ERROR ENKAPSULASI] NIM '{$nim}' tidak valid (Harus 7
-         digit). NIM tidak diubah.</span><br>";
-         return false;
-      }
-   }
+  $nim = trim($nim);
+
+        if (!ctype_digit($nim)) {
+            echo "<span style='color:red;'>[ERROR] NIM hanya boleh angka.</span><br>";
+            return false;
+        }
+
+        if (strlen($nim) !== 7) {
+            echo "<span style='color:red;'>[ERROR] NIM harus 7 digit.</span><br>";
+            return false;
+        }
+
+        if ($nim[0] !== '2') {
+            echo "<span style='color:red;'>[ERROR] Format NIM tidak valid.</span><br>";
+            return false;
+        }
+
+        $this->nim = $nim;
+        return true;
+    }
 
     /**
     * 🔓 Getter (Accessor) untuk properti NIM.
@@ -56,7 +66,7 @@ class Mahasiswa
      {
                
                // Menggunakan Getter untuk memastikan nilainya bisa diakses jika properti dibuat private
-               $nim_display = $this->nim ?? 'N/A';
+
                echo "--> Objek **{$this->nama}** telah dihancurkan (Destruktor berjalan).<br>";
      }
 }
