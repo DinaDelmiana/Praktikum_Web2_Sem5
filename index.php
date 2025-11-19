@@ -17,7 +17,7 @@ $mhs2 = new Mahasiswa("Dina","12345678");
 // $mhs2->nim = "2023006";
 
 // mencoba mengubah NIM (setter) - sukses
-echo "<h3 style='color:#2980b9;'>--- DEMO SETTER (mhs1) ---</h3>";
+// echo "<h3 style='color:#2980b9;'>--- DEMO SETTER (mhs1) ---</h3>";
 $mhs1->setNim("1234567"); // 7 digit - Sukses
 
  // 1. Instansiasi Objek User Biasa

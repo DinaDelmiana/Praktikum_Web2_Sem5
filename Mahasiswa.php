@@ -16,7 +16,7 @@ class Mahasiswa
      $this->nama = $nama;
      $this->setNim($nim);
 
-     echo "--> Objek **{$this->nama}** berhasil dibuat (Konstruktor berjalan).<br>";
+    //  echo "--> Objek **{$this->nama}** berhasil dibuat (Konstruktor berjalan).<br>";
     }
 
     public function setNim($nim)
@@ -67,7 +67,7 @@ class Mahasiswa
                
                // Menggunakan Getter untuk memastikan nilainya bisa diakses jika properti dibuat private
 
-               echo "--> Objek **{$this->nama}** telah dihancurkan (Destruktor berjalan).<br>";
+              //  echo "--> Objek **{$this->nama}** telah dihancurkan (Destruktor berjalan).<br>";
      }
 }
 // Catatan: Kelas Mahasiswa tidak akan dieksekusi di sini,

@@ -14,7 +14,7 @@ class User
   public function __construct($nama) 
   {
     $this->nama = $nama;
-    echo "--> Objek User **{$this->nama}** berhasil dibuat.<br>";
+    // echo "--> Objek User **{$this->nama}** berhasil dibuat.<br>";
   }
 
   /**
@@ -38,6 +38,6 @@ class User
   */
   public function __destruct()
   {
-    echo "--> Objek User **{$this->nama}** telah dihancurkan.<br>";
+    // echo "--> Objek User **{$this->nama}** telah dihancurkan.<br>";
   }
 }
