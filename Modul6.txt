@@ -1,0 +1,9 @@
+Nama : Dina Delmiana 
+NPM  : 2310010541
+Kelas  : 5A Reguler Banjarbaru
+Praktikum Web 2
+
+
+Modul 6 : Pengenalan MVC
+
+Ketika pengguna membuka URL situs.com/mahasiswa/index, browser mengirim request ke server. Request ini pertama kali diterima oleh Front Controller melalui router. Router membaca URL dan menentukan bahwa controller yang dipanggil adalah MahasiswaController dan method yang dipanggil adalah index(). Controller kemudian berkomunikasi dengan Model (misalnya MahasiswaModel) untuk mengambil data dari database. Setelah Model selesai mengambil data, Model mengembalikannya ke Controller. Controller lalu memilih View yang tepat dan mengirim data tersebut ke View. View bertugas menampilkan data dalam bentuk halaman HTML yang kemudian dikirim kembali ke browser pengguna.
