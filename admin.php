@@ -1,13 +1,14 @@
  <?php
  // Pastikan kelas induk User dimuat terlebih dahulu.
  require_once 'User.php';
+ require_once 'LoginInterface.php';
 
  /**
  * Kelas Anak (Child Class) Admin.
  * Mewarisi semua properti dan metode dari kelas User.
  */
- class Admin extends User
-{
+ class Admin extends User implements LoginInterface
+ {
  private $akses_level = 'full';
 
  /**
@@ -22,6 +23,23 @@
  // 2. Mengubah properti kelas induk secara langsung karena visibilitasnya protected.
  $this->role = 'admin';
  }
+
+ public function login()
+ {
+ return "Admin **{$this->nama}** berhasil login ke sistem dengan hak akses penuh.";
+ }
+
+ /**
+
+ * Implementasi wajib dari LoginInterface.
+ */
+ public function logout()
+ {
+ return "Admin **{$this->nama}** berhasil logout dari sistem.";
+ }
+
+
+
 
  /**
  * Method Overriding: Menimpa metode salam() dari kelas User.
