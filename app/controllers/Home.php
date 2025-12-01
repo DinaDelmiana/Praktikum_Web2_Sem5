@@ -4,7 +4,7 @@
  * Controller Default: Home
  * Controller ini akan dipanggil jika tidak ada controller spesifik yang diminta di URL.
  */
- class Home
+ class Home extends Controller // <- Mewarisi Base Controller
  {
  /**
  * Method default untuk Home Controller
@@ -17,6 +17,18 @@
  echo "<p>Sistem Routing (Modul 7) sudah berhasil mendeteksi request Anda!</p>";
  echo "<p>Coba ubah URL Anda menjadi:
        <strong>/Home/test/parameter1/parameter2</strong></p>";
+
+
+  // 1. Siapkan data yang akan dikirimkan ke View
+  $data = [
+  'judul' => 'Halaman Utama',
+  'nama' => 'User MVC' // Data dinamis yang akan digunakan di View
+   ];
+
+  // 2. Panggil metode view dari Base Controller
+  // Parameter pertama: path view relatif dari app/views/ (tanpa ekstensi .php)
+  // Parameter kedua: array data
+  $this->view('home/index', $data);
  }
 
  /**
