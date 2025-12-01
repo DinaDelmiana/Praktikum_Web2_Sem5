@@ -14,23 +14,23 @@
    */
    public function view($view, $data = [])
 
- {
-   // Ekstrak data array menjadi variabel individual.
-   // Contoh: $data['nama'] menjadi $nama, tersedia langsung di View.
-   extract($data);
+  {
+    // Ekstrak data array menjadi variabel individual.
+    // Contoh: $data['nama'] menjadi $nama, tersedia langsung di View.
+    extract($data);
 
-   // Tentukan path lengkap file view
-   $viewPath = '../app/views/' . $view . '.php';
+    // Tentukan path lengkap file view
+    $viewPath = '../app/views/' . $view . '.php';
 
-   // Cek apakah file view ada
-   if (file_exists($viewPath)) {
-   // Muat file view. Variabel $data yang diekstrak sudah tersedia di sini.
-   require_once $viewPath;
-   } else {
-     // Tampilkan pesan error jika view tidak ditemukan
-     die("Error: File View tidak ditemukan di " . $viewPath);
+    // Cek apakah file view ada
+    if (file_exists($viewPath)) {
+    // Muat file view. Variabel $data yang diekstrak sudah tersedia di sini.
+    require_once $viewPath;
+    } else {
+       // Tampilkan pesan error jika view tidak ditemukan
+       die("Error: File View tidak ditemukan di " . $viewPath);
+    }
   }
- }
 
   /**
   * Metode untuk memuat Model (akan diimplementasikan di Modul 9)
