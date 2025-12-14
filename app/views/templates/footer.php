@@ -1,16 +1,12 @@
- </div>
- <!-- Penutup tag .container yang dibuka di header.php -->
+</div>
 
- <footer style="text-align: center; margin-top: 30px; padding: 15px; background-color: #e9ecef;
-    border-top: 1px solid #dee2e6;">
-    <p>© 2024 Framework MVC Sederhana | Modul 9 View</p>
- </footer>
+<footer class="bg-light text-center py-3 mt-5">
+   <small class="text-muted">
+      © <?= date('Y'); ?> Simple MVC App
+   </small>
+</footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
- <!-- Script JavaScript bisa dimuat di sini -->
- <script>
- // Contoh script
- console.log("Footer dimuat.");
- </script>
- </body>
- </html>
+</html>

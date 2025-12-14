@@ -1,57 +1,23 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Judul halaman diambil dari data yang dikirim Controller -->
-<title><?php echo isset($judul) ? htmlspecialchars($judul) : 'Judul Default'; ?> | MVC
-Sederhana</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Judul halaman diambil dari data yang dikirim Controller -->
+    <title><?php echo isset($judul) ? htmlspecialchars($judul) : 'Judul Default'; ?> | MVC
+        Sederhana</title>
 
-<!-- Link CSS Dasar untuk Tampilan Sederhana -->
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        background-color: #f4f4f9;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-    .navbar {
-        background-color: #007bff;
-        padding: 15px 30px;
-        color: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .container {
-        flex: 1;              /* supaya konten mendorong footer ke bawah */
-        padding: 30px;
-        max-width: 900px;
-        margin: 40px auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-    h1 {
-        color: #007bff;
-        border-bottom: 2px solid #ccc;
-        padding-bottom: 10px;
-    }
-</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
- </head>
- <body>
-   <div class="navbar">
-     <span class="logo">Simple MVC App</span>
-   <div>
- <a href="#">Home</a>
- <a href="#">About</a>
- </div>
- </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Simple MVC App</a>
+            <div class="ms-auto">
+                <a class="nav-link d-inline text-white" href="#">Home</a>
+                <a class="nav-link d-inline text-white" href="#">About</a>
+            </div>
+        </div>
+    </nav>
 
- <!-- Konten halaman akan dimulai setelah tag ini -->
- <div class="container">
+    <div class="container mt-5">

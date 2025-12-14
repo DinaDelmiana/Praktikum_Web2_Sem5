@@ -1,7 +1,4 @@
-<?php
-require_once __DIR__ . '/../templates/Header.php';
-?>
-
+<div class="container">
     <h1><?php echo isset($judul) ? htmlspecialchars($judul) : 'Selamat Datang!'; ?></h1>
     <h2>Framework MVC Lokal Anda</h2>
     <p>Aplikasi ini dijalankan oleh **Controller Home** melalui **Metode index()**.</p>
@@ -13,9 +10,5 @@ require_once __DIR__ . '/../templates/Header.php';
         </div>
     <?php endif; ?>
 
-    <p>Lanjutkan ke Modul 9 untuk integrasi Model dan data yang sesungguhnya!</p>
-
-
-<?php
-require_once __DIR__ . '/../templates/Footer.php';
-?>
+    <!-- <p>Lanjutkan ke Modul 9 untuk integrasi Model dan data yang sesungguhnya!</p> -->
+</div>

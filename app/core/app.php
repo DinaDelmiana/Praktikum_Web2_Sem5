@@ -1,80 +1,78 @@
 <?php
 
- /**
+require_once __DIR__ . '/Controller.php';
+require_once __DIR__ . '/Database.php';
+require_once __DIR__ . '/Flasher.php';
+
+
+/**
  * Class App - Router Sederhana
  * Bertanggung jawab memecah URL, memanggil Controller, Method, dan mengirim Parameter.
  */
- class App
- {
- // Properti default
- protected $controller = 'Home'; // Controller default (jika URL kosong)
- protected $method = 'index'; // Method default
- protected $params = []; // Parameter default
+class App
+{
+  // Properti default
+  protected $controller = 'Home'; // Controller default (jika URL kosong)
+  protected $method = 'index'; // Method default
+  protected $params = []; // Parameter default
 
- public function __construct()
- {
- // 1. Dapatkan dan proses URL
- $url = $this->parseURL();
+  public function __construct()
+  {
+    // 1. Dapatkan dan proses URL
+    $url = $this->parseURL();
 
- // 2. Tentukan Controller
- // Cek apakah ada file controller dengan nama yang diminta di folder 'app/controllers/'
- if (file_exists('../app/controllers/' . $url[0] . '.php')) {
- $this->controller = $url[0];
- unset($url[0]); // Hapus nama controller dari array URL
- }
+    // 2. Tentukan Controller
+    // Cek apakah ada file controller dengan nama yang diminta di folder 'app/controllers/'
+    if (file_exists('../app/controllers/' . $url[0] . '.php')) {
+      $this->controller = $url[0];
+      unset($url[0]); // Hapus nama controller dari array URL
+    }
 
- // Muat Controller yang benar
- require_once '../app/controllers/' . $this->controller . '.php';
+    // Muat Controller yang benar
+    require_once '../app/controllers/' . $this->controller . '.php';
 
- // Buat instansi Controller
- $this->controller = new $this->controller;
+    // Buat instansi Controller
+    $this->controller = new $this->controller;
 
- // 3. Tentukan Method
- // Cek apakah elemen ke-1 (method) ada setelah controller
- if (isset($url[1])) {
- // Cek apakah method tersebut benar-benar ada di dalam class Controller yang dimuat
- if (method_exists($this->controller, $url[1])) {
- $this->method = $url[1];
- unset($url[1]); // Hapus nama method dari array URL
- }
- }
+    // 3. Tentukan Method
+    // Cek apakah elemen ke-1 (method) ada setelah controller
+    if (isset($url[1])) {
+      // Cek apakah method tersebut benar-benar ada di dalam class Controller yang dimuat
+      if (method_exists($this->controller, $url[1])) {
+        $this->method = $url[1];
+        unset($url[1]);
+      }
+    }
 
- // 4. Tentukan Parameter
- // Ambil sisa dari array URL (jika ada) sebagai parameter
- if (!empty($url)) {
- $this->params = array_values($url); // Reset index array agar rapi
- }
+    // 4. Tentukan Parameter
+    if (!empty($url)) {
+      $this->params = array_values($url); // Reset index array agar rapi
+    }
 
- // 5. Jalankan Controller, Method, dan kirimkan Parameter
- call_user_func_array([$this->controller, $this->method], $this->params);
- }
+    // 5. Jalankan Controller, Method, dan kirimkan Parameter
+    call_user_func_array([$this->controller, $this->method], $this->params);
+  }
 
- /**
- * Metode untuk mengambil dan membersihkan URL
- */
- public function parseURL()
- {
- if (isset($_GET['url'])) {
- // Hilangkan karakter '/' di akhir URL
- $url = rtrim($_GET['url'], '/');
- // Bersihkan URL dari karakter yang tidak diinginkan
- $url = filter_var($url, FILTER_SANITIZE_URL);
- // Pecah string URL berdasarkan '/' menjadi array
- $url = explode('/', $url);
 
- // Konversi elemen pertama ke Huruf Besar Awal (Controller name convention)
- if (!empty($url[0])) {
- $url[0] = ucfirst($url[0]);
- } else {
- // Jika URL kosong, kembalikan array berisi controller default
- return [$this->controller];
- }
+  public function parseURL()
+  {
+    if (isset($_GET['url'])) {
+      $url = rtrim($_GET['url'], '/');
+      $url = filter_var($url, FILTER_SANITIZE_URL);
+      $url = explode('/', $url);
 
- return $url;
- }
+      if (!empty($url[0])) {
+        $url[0] = ucfirst($url[0]);
+      } else {
+        // Jika URL kosong, kembalikan array berisi controller default
+        return [$this->controller];
+      }
 
- // Jika $_GET['url'] tidak disetel (akses langsung tanpa path), kembalikan controller
- 
- return [$this->controller];
- }
- }
+      return $url;
+    }
+
+    // Jika $_GET['url'] tidak disetel (akses langsung tanpa path), kembalikan controller
+
+    return [$this->controller];
+  }
+}
