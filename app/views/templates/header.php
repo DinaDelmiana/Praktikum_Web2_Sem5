@@ -14,7 +14,7 @@
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">Simple MVC App</a>
             <div class="ms-auto">
-                <a class="nav-link d-inline text-white" href="#">Home</a>
+                <a class="nav-link d-inline text-white" href="Home.php">Home</a>
                 <a class="nav-link d-inline text-white" href="#">About</a>
             </div>
         </div>
